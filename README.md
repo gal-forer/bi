@@ -1,6 +1,7 @@
 ## Notes:  
 * I did the task on the weekend so, I assumed some stuff
 * I made a script for part one and an API for part two
+* I wasn't sure in the get part if it's one flight or all of them, so I did both
 * I did an upsert end point for part two, it wasn't clear from the text, and it was a post request not a put
 
 ## How to run
@@ -19,9 +20,13 @@
 * --file, -f : the CSV file to load and store flights on
 #### request examples
 
-* #### get: 
+* #### get flights: 
+`curl --location 'http://127.0.0.1:8000/flights/'`  
+
+* #### get flight by id: 
 `curl --location 'http://127.0.0.1:8000/flights/A12'`  
-* #### post: 
+
+* #### add or update flights: 
 `curl --location 'http://127.0.0.1:8000/flights' \
 --header 'Content-Type: application/json' \
 --data '[

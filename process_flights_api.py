@@ -1,3 +1,4 @@
+import json
 from typing import List
 
 import click
@@ -29,6 +30,15 @@ async def get_flight_info(flight_id: str):
     else:
         raise HTTPException(status_code=404, detail="Flight not found")
 
+@app.get("/flights/")
+async def get_flight_info():
+    global flights
+    output = []
+    for f in flights.flights.values():
+        output.append(f.__dict__)
+    return {'flights': output}
+
+
 
 @app.post("/flights/")
 async def update_flights(flight_updates: List[Flight]):
@@ -40,6 +50,8 @@ async def update_flights(flight_updates: List[Flight]):
 
         # Calculate successes after update
         flights.check_success()
+        # sort
+        flights.flights = dict(sorted(flights.flights.items(), key=lambda item: item[1].arrival))
         # Update the csv file
         await flights.write_flights_to_csv_async(flights.csv_file)
 
@@ -55,6 +67,7 @@ def run(file):
         global flights
         flights = Flights(file, ['flight ID', 'Arrival', 'Departure', 'success'])
         await flights.load_flights_async()
+        flights.flights = dict(sorted(flights.flights.items(), key=lambda item: item[1].arrival))
         flights.check_success()
 
     import uvicorn
