@@ -1,7 +1,7 @@
 ## Notes:  
 * I did the task on the weekend so, I assumed some stuff
-* I made a script for part one and an API for part 2
-* I did an upsert end point for part 2, it wasn't clear from the text, and it was a post request not a put
+* I made a script for part one and an API for part two
+* I did an upsert end point for part two, it wasn't clear from the text, and it was a post request not a put
 
 ## How to run
 
