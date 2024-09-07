@@ -16,7 +16,7 @@
 ### API
 * `python process_flights_api.py --file db.csv`
 #### params
-* --file/-f : the input csv file
+* --file, -f : the input csv file
 #### request examples
 
 * #### get: 
