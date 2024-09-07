@@ -10,13 +10,13 @@
 ### Script
 * `python process_flights_script.py -f input.csv -o output.csv`
 #### params
-* --file, -f : the input csv file
-* --output, -o : the output csv file(optional)
+* --file, -f : the input CSV file
+* --output, -o : the output CSV file(optional)
 
 ### API
 * `python process_flights_api.py --file db.csv`
 #### params
-* --file, -f : the input csv file
+* --file, -f : the CSV file to load and store flights on
 #### request examples
 
 * #### get: 
